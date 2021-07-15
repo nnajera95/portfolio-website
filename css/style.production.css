@@ -1,3 +1,13 @@
+/*
+colors used
+
+text color - #000000
+primary color - #faf0e6
+link color - #8b008b
+	link once clicked - #191970
+menu link color - #191970
+*/
+
 html {
 	background-color: #faf0e6;
 }
@@ -57,6 +67,8 @@ button {
 	padding: 10px;
 	border-radius: 3px;
 	border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+	-webkit-transition: .2s opacity;
+	-o-transition: .2s opacity;
 	transition: .2s opacity;
 }
 
@@ -70,6 +82,8 @@ button {
 	padding: 10px;
 	border-radius: 3px;
 	border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+	-webkit-transition: .2s opacity;
+	-o-transition: .2s opacity;
 	transition: .2s opacity;
 }
 
@@ -83,6 +97,8 @@ button {
 	padding: 10px;
 	border-radius: 3px;
 	border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+	-webkit-transition: .2s opacity;
+	-o-transition: .2s opacity;
 	transition: .2s opacity;
 }
 
@@ -122,8 +138,13 @@ button:focus,
 
 .page-footer {
 	clear: both;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	text-align: center;
 }
 
@@ -135,10 +156,13 @@ button:focus,
 }
 
 * {
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 .page-header {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
 	padding: 20px;
@@ -146,7 +170,9 @@ button:focus,
 }
 
 .page-header_item {
-	flex: 0 1 200px;
+	-webkit-box-flex: 0;
+	    -ms-flex: 0 1 200px;
+	        flex: 0 1 200px;
 }
 
 .Website-logo {
@@ -156,7 +182,9 @@ button:focus,
 }
 
 .page-header_item:last-child {
-	flex-grow: 1;
+	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 	text-align: right;
 }
 
@@ -167,10 +195,43 @@ button:focus,
 }
 
 .grid {
+	display: -ms-grid;
 	display: grid;
+	-ms-grid-columns: 1fr 20px 1fr 20px 1fr;
 	grid-template-columns: repeat(3, 1fr);
+	-ms-grid-rows: 300px 20px 300px;
 	grid-template-rows: repeat(2, 300px);
 	grid-gap: 20px;
+}
+
+.grid > *:nth-child(1) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
+}
+
+.grid > *:nth-child(2) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 3;
+}
+
+.grid > *:nth-child(3) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 5;
+}
+
+.grid > *:nth-child(4) {
+	-ms-grid-row: 3;
+	-ms-grid-column: 1;
+}
+
+.grid > *:nth-child(5) {
+	-ms-grid-row: 3;
+	-ms-grid-column: 3;
+}
+
+.grid > *:nth-child(6) {
+	-ms-grid-row: 3;
+	-ms-grid-column: 5;
 }
 
 .grid_item {
@@ -190,12 +251,14 @@ table {
 
 @media all and (max-width: 500px) {
 	.grid {
+		-ms-grid-columns: 1fr;
 		grid-template-columns: 1fr;
 	}
 }
 
 @media all and (min-width: 500px) and (max-width: 750px) {
 	.grid{
+		-ms-grid-columns: 1fr 20px 1fr;
 		grid-template-columns: 1fr 1fr;
 	}
 }
@@ -213,6 +276,15 @@ table {
 	}
 }
 
+@-webkit-keyframes color-change {
+	from {
+		fill: #edc655;
+	}
+	to {
+		fill: #f76414;
+	}
+}
+
 @keyframes color-change {
 	from {
 		fill: #edc655;
@@ -223,31 +295,60 @@ table {
 }
 
 .sun {
-	animation: 4s color-change infinite alternate linear;
+	-webkit-animation: 4s color-change infinite alternate linear;
+	        animation: 4s color-change infinite alternate linear;
+}
+
+@-webkit-keyframes cloud-move {
+	from {
+		-webkit-transform: translate(0, 50px);
+		        transform: translate(0, 50px);
+	}
+	to {
+		-webkit-transform: translate(400px, 50px);
+		        transform: translate(400px, 50px);
+	}
 }
 
 @keyframes cloud-move {
 	from {
-		transform: translate(0, 50px);
+		-webkit-transform: translate(0, 50px);
+		        transform: translate(0, 50px);
 	}
 	to {
-		transform: translate(400px, 50px);
+		-webkit-transform: translate(400px, 50px);
+		        transform: translate(400px, 50px);
 	}
 }
 
 .cloud-front {
-	animation: 25s cloud-move infinite alternate linear;
+	-webkit-animation: 25s cloud-move infinite alternate linear;
+	        animation: 25s cloud-move infinite alternate linear;
+}
+
+@-webkit-keyframes cloud-move-reverse {
+	from {
+		-webkit-transform: translate(446px, 48px);
+		        transform: translate(446px, 48px);
+	}
+	to {
+		-webkit-transform: translate(100px, 48px);
+		        transform: translate(100px, 48px);
+	}
 }
 
 @keyframes cloud-move-reverse {
 	from {
-		transform: translate(446px, 48px);
+		-webkit-transform: translate(446px, 48px);
+		        transform: translate(446px, 48px);
 	}
 	to {
-		transform: translate(100px, 48px);
+		-webkit-transform: translate(100px, 48px);
+		        transform: translate(100px, 48px);
 	}
 }
 
 .cloud-back {
-	animation: 34s cloud-move-reverse infinite alternate linear;
+	-webkit-animation: 34s cloud-move-reverse infinite alternate linear;
+	        animation: 34s cloud-move-reverse infinite alternate linear;
 }
